@@ -7,9 +7,9 @@ export default {
     extend: {
       colors: {
         arc: {
-          bg: "#04070D",
-          surface: "rgba(10,15,25,0.72)",
-          panel: "rgba(10,15,25,0.5)",
+          bg: "#FFFFFF",
+          surface: "rgba(255,255,255,0.85)",
+          panel: "rgba(255,255,255,0.6)",
           border: "rgba(127,255,0,0.12)",
           "border-glow": "rgba(127,255,0,0.25)",
           blue: "#7FFF00",
@@ -19,9 +19,9 @@ export default {
           green: "#7FFF00",
           red: "#EF4444",
           orange: "#F59E0B",
-          text: "#F8FAFC",
-          "text-muted": "#CBD5E1",
-          "text-dim": "#64748B",
+          text: "#0F172A",
+          "text-muted": "#475569",
+          "text-dim": "#94A3B8",
         },
       },
       fontFamily: {

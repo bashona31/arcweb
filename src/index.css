@@ -5,13 +5,13 @@
 @tailwind utilities;
 
 @layer base {
-  * { border-color: rgba(127, 255, 0, 0.1); }
-  html { @apply scroll-smooth; color-scheme: dark; }
+  * { border-color: rgba(127,255,0,0.15); }
+  html { @apply scroll-smooth; color-scheme: light; }
   body {
     @apply antialiased;
     font-family: "Inter", system-ui, sans-serif;
-    background: #04070D;
-    color: #F8FAFC;
+    background: #FFFFFF;
+    color: #0F172A;
   }
   ::-webkit-scrollbar { width: 5px; height: 5px; }
   ::-webkit-scrollbar-track { background: transparent; }
@@ -21,7 +21,7 @@
 
 @layer components {
   .glass-card {
-    background: rgba(10, 15, 25, 0.72);
+    background: rgba(255,255,255,0.85);
     backdrop-filter: blur(24px) saturate(1.2);
     -webkit-backdrop-filter: blur(24px) saturate(1.2);
     border: 1px solid rgba(127, 255, 0, 0.1);

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export function BackgroundEffects() {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-      <div className="absolute inset-0 bg-[#04070D]" />
+      <div className="absolute inset-0 bg-[#FFFFFF]" />
       {/* Green grid */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: "linear-gradient(rgba(127,255,0,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(127,255,0,0.4) 1px, transparent 1px)",
@@ -56,7 +56,7 @@ export function BackgroundEffects() {
       <div className="absolute inset-0 noise-overlay" />
       {/* Vignette */}
       <div className="absolute inset-0" style={{
-        background: "radial-gradient(ellipse at 50% 50%, transparent 0%, rgba(4,7,13,0.7) 100%)",
+        background: "radial-gradient(ellipse at 50% 50%, transparent 0%, rgba(255,255,255,0.7) 100%)",
       }} />
     </div>
   );
