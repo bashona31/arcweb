@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useAccount } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { FAUCET_URL } from "@/lib/constants";
+import { FAUCET_URL, NATIVE_SYMBOL } from "@/lib/constants";
 import {
   Droplets,
   ExternalLink,
@@ -53,7 +53,7 @@ export function FaucetPanel() {
             <Wallet className="h-6 w-6 text-arc-cyan" />
           </div>
           <p className="text-sm text-arc-text-muted mb-4">
-            Connect wallet to claim testnet tokens
+            Connect wallet to claim testnet {NATIVE_SYMBOL} tokens
           </p>
           <ConnectButton />
         </div>
@@ -157,7 +157,7 @@ export function FaucetPanel() {
             <div className="flex items-center gap-2 p-3 rounded-lg bg-arc-green/5 border border-arc-green/20">
               <CheckCircle className="h-4 w-4 text-arc-green" />
               <span className="text-xs text-arc-green">
-                Faucet opened! Complete captcha to receive tokens.
+                Faucet opened! Complete captcha to receive {NATIVE_SYMBOL}.
               </span>
             </div>
           )}
@@ -176,7 +176,7 @@ export function FaucetPanel() {
             ) : (
               <>
                 <Zap className="h-4 w-4" />
-                Claim Testnet ETH
+                Claim Testnet {NATIVE_SYMBOL}
               </>
             )}
             <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />

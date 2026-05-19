@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLiveTransactions } from "@/hooks/useTransactions";
 import { shortenAddress, shortenHash, timeAgo } from "@/lib/utils";
-import { EXPLORER_URL } from "@/lib/constants";
+import { EXPLORER_URL, NATIVE_SYMBOL } from "@/lib/constants";
 import {
   ArrowRightLeft,
   ExternalLink,
@@ -99,8 +99,8 @@ export function TransactionFeed() {
                   <div className="text-right flex-shrink-0">
                     <p className="text-xs font-semibold text-white">
                       {parseFloat(tx.value) > 0
-                        ? `${parseFloat(tx.value).toFixed(4)} ETH`
-                        : "0 ETH"}
+                        ? `${parseFloat(tx.value).toFixed(4)} ${NATIVE_SYMBOL}`
+                        : `0 ${NATIVE_SYMBOL}`}
                     </p>
                     <p className="text-xs text-arc-text-dim">
                       Block #{tx.blockNumber}
@@ -134,7 +134,7 @@ export function TransactionFeed() {
                           value={tx.to || "Contract Creation"}
                           mono
                         />
-                        <DetailRow label="Value" value={`${tx.value} ETH`} />
+                        <DetailRow label="Value" value={`${tx.value} ${NATIVE_SYMBOL}`} />
                         <DetailRow label="Gas Price" value={`${tx.gasPrice} Gwei`} />
                         <DetailRow
                           label="Block"

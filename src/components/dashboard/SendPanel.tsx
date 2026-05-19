@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useAccount, useSendTransaction, useWaitForTransactionReceipt } from "wagmi";
 import { parseEther, isAddress } from "viem";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { EXPLORER_URL } from "@/lib/constants";
+import { EXPLORER_URL, NATIVE_SYMBOL } from "@/lib/constants";
 import {
   Send,
   ArrowUpRight,
@@ -64,7 +64,7 @@ export function SendPanel() {
         <div className="p-1.5 rounded-lg bg-arc-blue/10">
           <Send className="h-4 w-4 text-arc-blue" />
         </div>
-        <h3 className="text-sm font-semibold text-white">Token Sender</h3>
+        <h3 className="text-sm font-semibold text-white">ARC Token Sender</h3>
       </div>
 
       {!isConnected ? (
@@ -73,7 +73,7 @@ export function SendPanel() {
             <Wallet className="h-6 w-6 text-arc-blue" />
           </div>
           <p className="text-sm text-arc-text-muted mb-4">
-            Connect wallet to send transactions
+            Connect wallet to send ARC tokens
           </p>
           <ConnectButton />
         </div>
@@ -135,7 +135,7 @@ export function SendPanel() {
                 {/* Amount */}
                 <div>
                   <label className="text-xs font-medium text-arc-text-muted mb-1.5 block">
-                    Amount (ETH)
+                    Amount ({NATIVE_SYMBOL})
                   </label>
                   <div className="relative">
                     <input
@@ -148,7 +148,7 @@ export function SendPanel() {
                       className="w-full px-4 py-3 rounded-lg bg-arc-bg border border-arc-border text-sm font-mono text-white placeholder-arc-text-dim focus:outline-none focus:border-arc-blue/50 focus:ring-1 focus:ring-arc-blue/20 transition-all pr-16"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-arc-text-muted font-medium">
-                      ETH
+                      {NATIVE_SYMBOL}
                     </span>
                   </div>
                 </div>
@@ -197,7 +197,7 @@ export function SendPanel() {
                   ) : (
                     <>
                       <ArrowUpRight className="h-4 w-4" />
-                      Send Transaction
+                      Send {NATIVE_SYMBOL}
                     </>
                   )}
                   <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />

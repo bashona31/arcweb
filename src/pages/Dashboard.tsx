@@ -61,7 +61,7 @@ export function Dashboard() {
                   ARC Faucet Hub
                 </h2>
                 <p className="text-sm text-arc-text-muted">
-                  Claim free testnet ETH for development and testing
+                  Claim free testnet ARC for development and testing
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -85,7 +85,7 @@ export function Dashboard() {
                   Token Sender
                 </h2>
                 <p className="text-sm text-arc-text-muted">
-                  Send ETH transactions on ARC Testnet
+                  Send ARC transactions on ARC Testnet
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
