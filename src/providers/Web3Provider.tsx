@@ -10,7 +10,7 @@ import { defineChain } from "viem";
 import "@rainbow-me/rainbowkit/styles.css";
 
 const arcTestnet = defineChain({
-  id: 1637450,
+  id:5042002,
   name: "ARC Testnet",
   nativeCurrency: {
     decimals: 18,
