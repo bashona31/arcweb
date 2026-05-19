@@ -31,81 +31,107 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
   const { isConnected } = useWebSocketConnection();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.04] bg-arc-bg/60 backdrop-blur-2xl backdrop-saturate-150">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="relative group">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-arc-blue to-arc-cyan flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] transition-shadow duration-300">
-                <Zap className="h-4 w-4 text-white" />
+    <nav className="fixed top-0 left-0 right-0 z-50">
+      {/* Top edge glow line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-arc-purple/40 to-transparent" />
+
+      <div className="border-b border-white/[0.04] bg-[#050816]/70 backdrop-blur-2xl backdrop-saturate-150">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="flex h-16 items-center justify-between">
+            {/* Logo */}
+            <div className="flex items-center gap-3">
+              <div className="relative group cursor-pointer">
+                <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-arc-purple to-arc-cyan flex items-center justify-center shadow-[0_0_20px_rgba(124,58,237,0.3)] group-hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] transition-all duration-300">
+                  <Zap className="h-4 w-4 text-white" />
+                </div>
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-arc-purple to-arc-cyan opacity-40 blur-xl group-hover:opacity-70 transition-opacity duration-300" />
               </div>
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-arc-blue to-arc-cyan opacity-40 blur-lg group-hover:opacity-60 transition-opacity" />
-            </div>
-            <div className="flex items-baseline gap-0.5">
-              <span className="text-sm font-black text-white tracking-tight uppercase">ARC</span>
-              <span className="text-sm font-light text-arc-text-muted tracking-wide">Terminal</span>
-            </div>
-            {/* WS Status */}
-            <div className="hidden sm:flex items-center gap-1.5 ml-3 px-2.5 py-1 rounded-full bg-white/[0.03] border border-white/[0.06]">
-              {isConnected ? (
-                <>
-                  <div className="h-1.5 w-1.5 rounded-full bg-arc-green shadow-[0_0_6px_rgba(16,185,129,0.8)] animate-pulse" />
-                  <span className="text-[10px] text-arc-green/90 font-medium tracking-wide">LIVE</span>
-                </>
-              ) : (
-                <>
-                  <div className="h-1.5 w-1.5 rounded-full bg-arc-red/80" />
-                  <span className="text-[10px] text-arc-red/80 font-medium">OFFLINE</span>
-                </>
-              )}
-            </div>
-          </div>
+              <div className="flex items-baseline gap-1">
+                <span className="text-sm font-black text-white tracking-tight uppercase">
+                  ARC
+                </span>
+                <span className="text-sm font-light text-arc-text-muted tracking-widest uppercase">
+                  Terminal
+                </span>
+              </div>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-0.5 p-1 rounded-xl bg-white/[0.02] border border-white/[0.04]">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = activeTab === item.id;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => onTabChange(item.id)}
-                  className={`relative flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-medium transition-all duration-200 ${
-                    isActive
-                      ? "text-white"
-                      : "text-arc-text-muted hover:text-white/80"
-                  }`}
-                >
-                  {isActive && (
-                    <motion.div
-                      layoutId="nav-active"
-                      className="absolute inset-0 rounded-lg bg-white/[0.06] border border-white/[0.08] shadow-[0_0_12px_rgba(59,130,246,0.1)]"
-                      transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
-                    />
+              {/* WebSocket Status */}
+              <div className="hidden sm:flex items-center gap-2 ml-4 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06]">
+                <div className="relative">
+                  <div className={`h-1.5 w-1.5 rounded-full ${isConnected ? "bg-arc-green" : "bg-arc-red/70"}`}
+                    style={isConnected ? { boxShadow: "0 0 8px rgba(16,185,129,0.8)" } : {}}
+                  />
+                  {isConnected && (
+                    <div className="absolute inset-0 h-1.5 w-1.5 rounded-full bg-arc-green animate-ping opacity-30" />
                   )}
-                  <Icon className="h-3.5 w-3.5 relative z-10" />
-                  <span className="relative z-10">{item.label}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Right Section */}
-          <div className="flex items-center gap-3">
-            <div className="hidden sm:block">
-              <ConnectButton
-                accountStatus="avatar"
-                chainStatus="icon"
-                showBalance={false}
-              />
+                </div>
+                <span className={`text-[10px] font-semibold tracking-[0.15em] ${isConnected ? "text-arc-green" : "text-arc-red/70"}`}>
+                  {isConnected ? "LIVE" : "OFFLINE"}
+                </span>
+              </div>
             </div>
-            <button
-              className="md:hidden p-2 text-arc-text-muted hover:text-white transition-colors"
-              onClick={() => setMobileOpen(!mobileOpen)}
-            >
-              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
+
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center gap-0.5 p-1 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = activeTab === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => onTabChange(item.id)}
+                    className={`relative flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-medium transition-all duration-200 ${
+                      isActive
+                        ? "text-white"
+                        : "text-arc-text-muted hover:text-white/80"
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="nav-active"
+                        className="absolute inset-0 rounded-lg"
+                        style={{
+                          background: "rgba(124, 58, 237, 0.08)",
+                          border: "1px solid rgba(124, 58, 237, 0.25)",
+                          boxShadow: "0 0 15px rgba(124, 58, 237, 0.1), inset 0 0 15px rgba(124, 58, 237, 0.03)",
+                        }}
+                        transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                      />
+                    )}
+                    <Icon className="h-3.5 w-3.5 relative z-10" />
+                    <span className="relative z-10">{item.label}</span>
+                    {/* Active neon underline */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="nav-underline"
+                        className="absolute bottom-0 left-3 right-3 h-px"
+                        style={{
+                          background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.6), transparent)",
+                        }}
+                        transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                      />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Right Section */}
+            <div className="flex items-center gap-3">
+              <div className="hidden sm:block">
+                <ConnectButton
+                  accountStatus="avatar"
+                  chainStatus="icon"
+                  showBalance={false}
+                />
+              </div>
+              <button
+                className="md:hidden p-2 text-arc-text-muted hover:text-white transition-colors rounded-lg hover:bg-white/[0.04]"
+                onClick={() => setMobileOpen(!mobileOpen)}
+              >
+                {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -117,9 +143,10 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-white/[0.04] bg-arc-bg/95 backdrop-blur-2xl"
+            transition={{ duration: 0.2 }}
+            className="md:hidden border-b border-white/[0.04] bg-[#050816]/95 backdrop-blur-2xl"
           >
-            <div className="p-4 space-y-1.5">
+            <div className="p-4 space-y-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = activeTab === item.id;
@@ -130,18 +157,21 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
                       onTabChange(item.id);
                       setMobileOpen(false);
                     }}
-                    className={`flex w-full items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
+                    className={`flex w-full items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-medium transition-all ${
                       isActive
-                        ? "bg-white/[0.05] border border-white/[0.08] text-white shadow-[0_0_12px_rgba(59,130,246,0.08)]"
-                        : "text-arc-text-muted hover:bg-white/[0.03] hover:text-white"
+                        ? "text-white bg-arc-purple/[0.08] border border-arc-purple/20 shadow-[0_0_15px_rgba(124,58,237,0.08)]"
+                        : "text-arc-text-muted hover:text-white hover:bg-white/[0.03]"
                     }`}
                   >
-                    <Icon className="h-4 w-4" />
+                    <Icon className={`h-4 w-4 ${isActive ? "text-arc-purple" : ""}`} />
                     {item.label}
+                    {isActive && (
+                      <div className="ml-auto h-1.5 w-1.5 rounded-full bg-arc-purple shadow-[0_0_6px_rgba(124,58,237,0.8)]" />
+                    )}
                   </button>
                 );
               })}
-              <div className="pt-3 border-t border-white/[0.04]">
+              <div className="pt-3 mt-2 border-t border-white/[0.06]">
                 <ConnectButton />
               </div>
             </div>
