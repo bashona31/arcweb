@@ -55,7 +55,11 @@ export function AnalyticsPanel() {
   ];
 
   return (
-    <div className="rounded-xl border border-arc-border bg-arc-surface/50 backdrop-blur-sm">
+    <motion.div
+      whileHover={{ rotateX: 0.3, rotateY: -0.3 }}
+      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+      style={{ transformStyle: "preserve-3d", perspective: "1200px" }}
+      className="rounded-2xl border border-arc-border bg-arc-surface/50 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.05)]">
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-arc-border">
         <div className="flex items-center gap-2">
@@ -214,6 +218,6 @@ export function AnalyticsPanel() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

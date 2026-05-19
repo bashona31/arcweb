@@ -4,8 +4,8 @@ export const ARC_TESTNET_CONFIG = {
   network: "arc-testnet",
   nativeCurrency: {
     decimals: 18,
-    name: "ETH",
-    symbol: "ETH",
+    name: "ARC",
+    symbol: "ARC",
   },
   rpcUrls: {
     default: {
@@ -32,3 +32,5 @@ export const HTTP_RPC_URL = "https://arc-testnet.g.alchemy.com/v2/wR4tuK-24rvsCM
 export const FAUCET_URL = "https://faucet.circle.com";
 
 export const EXPLORER_URL = "https://testnet.arcscan.io";
+
+export const NATIVE_SYMBOL = "ARC";

@@ -2,12 +2,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLiveTransactions } from "@/hooks/useTransactions";
 import { shortenAddress, shortenHash, timeAgo } from "@/lib/utils";
-import { EXPLORER_URL } from "@/lib/constants";
+import { EXPLORER_URL, NATIVE_SYMBOL } from "@/lib/constants";
 import {
   ArrowRightLeft,
   ExternalLink,
   Clock,
-  Fuel,
   ChevronDown,
   ChevronUp,
   Activity,
@@ -18,17 +17,22 @@ export function TransactionFeed() {
   const [expandedTx, setExpandedTx] = useState<string | null>(null);
 
   return (
-    <div className="rounded-xl border border-arc-border bg-arc-surface/50 backdrop-blur-sm">
+    <motion.div
+      whileHover={{ rotateX: 0.5, rotateY: -0.5 }}
+      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+      style={{ transformStyle: "preserve-3d", perspective: "1200px" }}
+      className="rounded-2xl border border-arc-border bg-arc-surface/50 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.05)]"
+    >
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-arc-border">
         <div className="flex items-center gap-2">
           <div className="relative">
             <ArrowRightLeft className="h-4 w-4 text-arc-cyan" />
-            <div className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-arc-green animate-pulse" />
+            <div className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-arc-green animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
           </div>
           <h3 className="text-sm font-semibold text-white">Live Transactions</h3>
         </div>
-        <span className="text-xs text-arc-text-muted px-2 py-1 rounded-md bg-arc-bg border border-arc-border">
+        <span className="text-xs text-arc-text-muted px-2 py-1 rounded-lg bg-arc-bg border border-arc-border shadow-[inset_0_1px_2px_rgba(0,0,0,0.3)]">
           {transactions.length} txs
         </span>
       </div>
@@ -38,18 +42,13 @@ export function TransactionFeed() {
         {loading ? (
           <div className="p-5 space-y-3">
             {[...Array(5)].map((_, i) => (
-              <div
-                key={i}
-                className="h-16 rounded-lg bg-arc-border/30 animate-pulse"
-              />
+              <div key={i} className="h-16 rounded-xl bg-arc-border/30 animate-pulse" />
             ))}
           </div>
         ) : transactions.length === 0 ? (
           <div className="p-8 text-center">
             <Activity className="h-8 w-8 text-arc-text-dim mx-auto mb-3" />
-            <p className="text-sm text-arc-text-muted">
-              Waiting for transactions...
-            </p>
+            <p className="text-sm text-arc-text-muted">Waiting for transactions...</p>
           </div>
         ) : (
           <AnimatePresence initial={false}>
@@ -62,61 +61,37 @@ export function TransactionFeed() {
                 className="border-b border-arc-border/50 last:border-0"
               >
                 <button
-                  onClick={() =>
-                    setExpandedTx(expandedTx === tx.hash ? null : tx.hash)
-                  }
+                  onClick={() => setExpandedTx(expandedTx === tx.hash ? null : tx.hash)}
                   className="w-full px-5 py-3 flex items-center gap-3 hover:bg-arc-bg/50 transition-colors text-left"
                 >
-                  {/* Tx Type Icon */}
-                  <div className="h-8 w-8 rounded-full bg-arc-blue/10 border border-arc-blue/20 flex items-center justify-center flex-shrink-0">
+                  <div className="h-8 w-8 rounded-full bg-arc-blue/10 border border-arc-blue/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
                     <ArrowRightLeft className="h-3.5 w-3.5 text-arc-blue" />
                   </div>
-
-                  {/* Main Info */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-white">
-                        {shortenHash(tx.hash)}
-                      </span>
-                      <span className="text-xs text-arc-text-dim">•</span>
+                      <span className="text-xs font-mono text-white">{shortenHash(tx.hash)}</span>
+                      <span className="text-xs text-arc-text-dim">·</span>
                       <span className="text-xs text-arc-text-muted">
-                        <Clock className="h-3 w-3 inline mr-0.5" />
-                        {timeAgo(tx.timestamp)}
+                        <Clock className="h-3 w-3 inline mr-0.5" />{timeAgo(tx.timestamp)}
                       </span>
                     </div>
                     <div className="flex items-center gap-1 mt-0.5">
-                      <span className="text-xs text-arc-text-muted">
-                        {shortenAddress(tx.from)}
-                      </span>
+                      <span className="text-xs text-arc-text-muted">{shortenAddress(tx.from)}</span>
                       <span className="text-xs text-arc-text-dim">→</span>
-                      <span className="text-xs text-arc-text-muted">
-                        {tx.to ? shortenAddress(tx.to) : "Contract Create"}
-                      </span>
+                      <span className="text-xs text-arc-text-muted">{tx.to ? shortenAddress(tx.to) : "Contract Create"}</span>
                     </div>
                   </div>
-
-                  {/* Value */}
                   <div className="text-right flex-shrink-0">
                     <p className="text-xs font-semibold text-white">
-                      {parseFloat(tx.value) > 0
-                        ? `${parseFloat(tx.value).toFixed(4)} ETH`
-                        : "0 ETH"}
+                      {parseFloat(tx.value) > 0 ? `${parseFloat(tx.value).toFixed(4)} ${NATIVE_SYMBOL}` : `0 ${NATIVE_SYMBOL}`}
                     </p>
-                    <p className="text-xs text-arc-text-dim">
-                      Block #{tx.blockNumber}
-                    </p>
+                    <p className="text-xs text-arc-text-dim">Block #{tx.blockNumber}</p>
                   </div>
-
                   <div className="flex-shrink-0 text-arc-text-dim">
-                    {expandedTx === tx.hash ? (
-                      <ChevronUp className="h-4 w-4" />
-                    ) : (
-                      <ChevronDown className="h-4 w-4" />
-                    )}
+                    {expandedTx === tx.hash ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
                   </div>
                 </button>
 
-                {/* Expanded Details */}
                 <AnimatePresence>
                   {expandedTx === tx.hash && (
                     <motion.div
@@ -126,29 +101,16 @@ export function TransactionFeed() {
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 py-3 bg-arc-bg/50 space-y-2 mx-3 mb-3 rounded-lg border border-arc-border/50">
+                      <div className="px-5 py-3 bg-arc-bg/50 space-y-2 mx-3 mb-3 rounded-xl border border-arc-border/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]">
                         <DetailRow label="Hash" value={tx.hash} mono />
                         <DetailRow label="From" value={tx.from} mono />
-                        <DetailRow
-                          label="To"
-                          value={tx.to || "Contract Creation"}
-                          mono
-                        />
-                        <DetailRow label="Value" value={`${tx.value} ETH`} />
+                        <DetailRow label="To" value={tx.to || "Contract Creation"} mono />
+                        <DetailRow label="Value" value={`${tx.value} ${NATIVE_SYMBOL}`} />
                         <DetailRow label="Gas Price" value={`${tx.gasPrice} Gwei`} />
-                        <DetailRow
-                          label="Block"
-                          value={`#${tx.blockNumber}`}
-                        />
+                        <DetailRow label="Block" value={`#${tx.blockNumber}`} />
                         <div className="pt-2">
-                          <a
-                            href={`${EXPLORER_URL}/tx/${tx.hash}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-xs text-arc-blue hover:underline"
-                          >
-                            View on Explorer
-                            <ExternalLink className="h-3 w-3" />
+                          <a href={`${EXPLORER_URL}/tx/${tx.hash}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-arc-blue hover:underline">
+                            View on Explorer <ExternalLink className="h-3 w-3" />
                           </a>
                         </div>
                       </div>
@@ -160,27 +122,15 @@ export function TransactionFeed() {
           </AnimatePresence>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
-function DetailRow({
-  label,
-  value,
-  mono,
-}: {
-  label: string;
-  value: string;
-  mono?: boolean;
-}) {
+function DetailRow({ label, value, mono }: { label: string; value: string; mono?: boolean }) {
   return (
     <div className="flex items-center justify-between gap-4">
       <span className="text-xs text-arc-text-muted flex-shrink-0">{label}</span>
-      <span
-        className={`text-xs text-white truncate ${mono ? "font-mono" : ""}`}
-      >
-        {value}
-      </span>
+      <span className={`text-xs text-white truncate ${mono ? "font-mono" : ""}`}>{value}</span>
     </div>
   );
 }

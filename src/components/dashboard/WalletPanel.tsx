@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount, useBalance } from "wagmi";
 import { shortenAddress } from "@/lib/utils";
+import { NATIVE_SYMBOL } from "@/lib/constants";
 import {
   Wallet,
   Copy,
@@ -27,21 +28,28 @@ export function WalletPanel() {
   };
 
   return (
-    <div className="rounded-xl border border-arc-border bg-arc-surface/50 backdrop-blur-sm p-5">
+    <motion.div
+      whileHover={{ rotateX: 2, rotateY: -2, scale: 1.01 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
+      className="rounded-2xl border border-arc-border bg-arc-surface/50 backdrop-blur-xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.05)]"
+    >
       <div className="flex items-center gap-2 mb-4">
-        <Wallet className="h-4 w-4 text-arc-purple" />
+        <div className="p-1.5 rounded-lg bg-arc-purple/10 shadow-[0_0_12px_rgba(139,92,246,0.3)]">
+          <Wallet className="h-4 w-4 text-arc-purple" />
+        </div>
         <h3 className="text-sm font-semibold text-white">Wallet</h3>
       </div>
 
       {isConnected && address ? (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, z: -20 }}
+          animate={{ opacity: 1, z: 0 }}
           className="space-y-4"
         >
           {/* Address Display */}
-          <div className="flex items-center gap-2 p-3 rounded-lg bg-arc-bg border border-arc-border">
-            <div className="h-8 w-8 rounded-full bg-gradient-to-br from-arc-blue to-arc-purple flex items-center justify-center">
+          <div className="flex items-center gap-2 p-3 rounded-xl bg-arc-bg/80 border border-arc-border shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
+            <div className="h-8 w-8 rounded-full bg-gradient-to-br from-arc-blue to-arc-purple flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.4)]">
               <Shield className="h-4 w-4 text-white" />
             </div>
             <div className="flex-1 min-w-0">
@@ -71,14 +79,14 @@ export function WalletPanel() {
           </div>
 
           {/* Balance */}
-          <div className="p-4 rounded-lg bg-gradient-to-br from-arc-blue/5 to-arc-purple/5 border border-arc-blue/10">
+          <div className="p-4 rounded-xl bg-gradient-to-br from-arc-blue/8 to-arc-purple/8 border border-arc-blue/15 shadow-[0_4px_20px_rgba(59,130,246,0.1),inset_0_1px_0_rgba(255,255,255,0.03)]">
             <p className="text-xs text-arc-text-muted mb-1">Balance</p>
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-bold text-white">
+              <span className="text-2xl font-bold text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.1)]">
                 {balance ? parseFloat(balance.formatted).toFixed(4) : "0.0000"}
               </span>
-              <span className="text-sm text-arc-text-muted">
-                {balance?.symbol || "ETH"}
+              <span className="text-sm font-semibold text-arc-cyan">
+                {NATIVE_SYMBOL}
               </span>
             </div>
           </div>
@@ -100,7 +108,7 @@ export function WalletPanel() {
         </motion.div>
       ) : (
         <div className="text-center py-6">
-          <div className="inline-flex p-4 rounded-full bg-arc-blue/5 border border-arc-blue/10 mb-4">
+          <div className="inline-flex p-4 rounded-full bg-arc-blue/5 border border-arc-blue/10 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)]">
             <Wallet className="h-6 w-6 text-arc-blue" />
           </div>
           <p className="text-sm text-arc-text-muted mb-4">
@@ -109,6 +117,6 @@ export function WalletPanel() {
           <ConnectButton />
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

@@ -25,7 +25,11 @@ export function BlockExplorer() {
   });
 
   return (
-    <div className="rounded-xl border border-arc-border bg-arc-surface/50 backdrop-blur-sm">
+    <motion.div
+      whileHover={{ rotateX: 0.5, rotateY: -0.3 }}
+      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+      style={{ transformStyle: "preserve-3d", perspective: "1200px" }}
+      className="rounded-2xl border border-arc-border bg-arc-surface/50 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.05)]">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 px-5 py-4 border-b border-arc-border">
         <div className="flex items-center gap-2">
@@ -83,7 +87,7 @@ export function BlockExplorer() {
                 >
                   <div className="flex items-center gap-4">
                     {/* Block Icon */}
-                    <div className="h-10 w-10 rounded-lg bg-arc-blue/10 border border-arc-blue/20 flex items-center justify-center flex-shrink-0">
+                    <div className="h-10 w-10 rounded-xl bg-arc-blue/10 border border-arc-blue/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(59,130,246,0.2)]">
                       <Box className="h-4 w-4 text-arc-blue" />
                     </div>
 
@@ -139,6 +143,6 @@ export function BlockExplorer() {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
