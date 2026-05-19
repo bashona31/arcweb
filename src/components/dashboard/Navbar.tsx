@@ -34,7 +34,7 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
       {/* Top edge glow line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-arc-green/40 to-transparent" />
 
-      <div className="border-b border-black/[0.06] bg-[#FFFFFF]/70 backdrop-blur-2xl backdrop-saturate-150">
+      <div className="border-b border-white/[0.06] bg-[#050816]/70 backdrop-blur-2xl backdrop-saturate-150">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
@@ -63,12 +63,12 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-40 blur-lg transition-opacity duration-300 bg-white/20 rounded-lg" />
               </div>
               {/* Brand Name */}
-              <span className="text-lg font-semibold text-slate-900/90 tracking-tight">
+              <span className="text-lg font-semibold text-white/90 tracking-tight">
                 Arc
               </span>
 
               {/* WebSocket Status */}
-              <div className="hidden sm:flex items-center gap-2 ml-4 px-3 py-1.5 rounded-full bg-black/[0.03] border border-black/[0.08]">
+              <div className="hidden sm:flex items-center gap-2 ml-4 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06]">
                 <div className="relative">
                   <div className={`h-1.5 w-1.5 rounded-full ${isConnected ? "bg-arc-green" : "bg-arc-red/70"}`}
                     style={isConnected ? { boxShadow: "0 0 8px rgba(16,185,129,0.8)" } : {}}
@@ -84,7 +84,7 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
             </div>
 
             {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-0.5 p-1 rounded-xl bg-black/[0.02] border border-black/[0.06]">
+            <div className="hidden md:flex items-center gap-0.5 p-1 rounded-xl bg-white/[0.02] border border-white/[0.06]">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = activeTab === item.id;
@@ -94,8 +94,8 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
                     onClick={() => onTabChange(item.id)}
                     className={`relative flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-medium transition-all duration-200 ${
                       isActive
-                        ? "text-slate-900"
-                        : "text-arc-text-muted hover:text-slate-900/80"
+                        ? "text-white"
+                        : "text-arc-text-muted hover:text-white/80"
                     }`}
                   >
                     {isActive && (
@@ -138,7 +138,7 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
                 />
               </div>
               <button
-                className="md:hidden p-2 text-arc-text-muted hover:text-slate-900 transition-colors rounded-lg hover:bg-black/[0.04]"
+                className="md:hidden p-2 text-arc-text-muted hover:text-white transition-colors rounded-lg hover:bg-white/[0.04]"
                 onClick={() => setMobileOpen(!mobileOpen)}
               >
                 {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -156,7 +156,7 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-b border-black/[0.06] bg-[#FFFFFF]/95 backdrop-blur-2xl"
+            className="md:hidden border-b border-white/[0.06] bg-[#050816]/95 backdrop-blur-2xl"
           >
             <div className="p-4 space-y-1">
               {navItems.map((item) => {
@@ -171,8 +171,8 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
                     }}
                     className={`flex w-full items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-medium transition-all ${
                       isActive
-                        ? "text-slate-900 bg-arc-green/[0.08] border border-arc-green/20 shadow-[0_0_15px_rgba(127,255,0,0.08)]"
-                        : "text-arc-text-muted hover:text-slate-900 hover:bg-black/[0.03]"
+                        ? "text-white bg-arc-green/[0.08] border border-arc-green/20 shadow-[0_0_15px_rgba(127,255,0,0.08)]"
+                        : "text-arc-text-muted hover:text-white hover:bg-white/[0.03]"
                     }`}
                   >
                     <Icon className={`h-4 w-4 ${isActive ? "text-arc-green" : ""}`} />
@@ -183,7 +183,7 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
                   </button>
                 );
               })}
-              <div className="pt-3 mt-2 border-t border-black/[0.08]">
+              <div className="pt-3 mt-2 border-t border-white/[0.06]">
                 <ConnectButton />
               </div>
             </div>
