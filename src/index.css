@@ -10,7 +10,7 @@
   body {
     @apply antialiased;
     font-family: "Inter", system-ui, sans-serif;
-    background: #050816;
+    background: #FFFFFF;
     color: #F8FAFC;
   }
   ::-webkit-scrollbar { width: 5px; height: 5px; }

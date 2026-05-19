@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export function BackgroundEffects() {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-      <div className="absolute inset-0 bg-[#050816]" />
+      <div className="absolute inset-0 bg-[#FFFFFF]" />
       {/* Green grid */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: "linear-gradient(rgba(163,230,53,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(163,230,53,0.4) 1px, transparent 1px)",

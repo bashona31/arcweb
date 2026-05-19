@@ -34,7 +34,7 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
       {/* Top edge glow line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-arc-green/40 to-transparent" />
 
-      <div className="border-b border-white/[0.06] bg-[#050816]/70 backdrop-blur-2xl backdrop-saturate-150">
+      <div className="border-b border-white/[0.06] bg-[#FFFFFF]/70 backdrop-blur-2xl backdrop-saturate-150">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
@@ -156,7 +156,7 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-b border-white/[0.06] bg-[#050816]/95 backdrop-blur-2xl"
+            className="md:hidden border-b border-white/[0.06] bg-[#FFFFFF]/95 backdrop-blur-2xl"
           >
             <div className="p-4 space-y-1">
               {navItems.map((item) => {

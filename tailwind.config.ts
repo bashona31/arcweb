@@ -7,7 +7,7 @@ export default {
     extend: {
       colors: {
         arc: {
-          bg: "#050816",
+          bg: "#FFFFFF",
           surface: "rgba(15,23,42,0.72)",
           panel: "rgba(15,23,42,0.5)",
           border: "rgba(163,230,53,0.12)",
