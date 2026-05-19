@@ -97,7 +97,7 @@ export function FaucetPanel() {
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-32 w-32 rounded-full"
                 style={{ border: "1px solid rgba(190,242,100,0.12)" }}
               >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-arc-cyan" style={{ boxShadow: "0 0 8px rgba(190,242,100,0.8)" }} />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-arc-cyan" style={{ boxShadow: "0 0 8px rgba(163,230,53,0.3)" }} />
               </motion.div>
 
               {/* Middle pulse ring */}
@@ -105,7 +105,7 @@ export function FaucetPanel() {
                 animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0, 0.4] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeOut" }}
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-24 w-24 rounded-full"
-                style={{ border: "1px solid rgba(190,242,100,0.3)" }}
+                style={{ border: "1px solid rgba(163,230,53,0.12)" }}
               />
 
               {/* Second pulse wave */}
@@ -122,16 +122,16 @@ export function FaucetPanel() {
                   boxShadow: cooldown > 0
                     ? "0 0 20px rgba(190,242,100,0.1), inset 0 0 20px rgba(190,242,100,0.05)"
                     : [
-                        "0 0 30px rgba(190,242,100,0.3), 0 0 60px rgba(190,242,100,0.15), inset 0 0 30px rgba(190,242,100,0.1)",
-                        "0 0 50px rgba(190,242,100,0.5), 0 0 100px rgba(190,242,100,0.2), inset 0 0 40px rgba(190,242,100,0.15)",
-                        "0 0 30px rgba(190,242,100,0.3), 0 0 60px rgba(190,242,100,0.15), inset 0 0 30px rgba(190,242,100,0.1)",
+                        "0 0 30px rgba(163,230,53,0.12), 0 0 60px rgba(190,242,100,0.15), inset 0 0 30px rgba(190,242,100,0.1)",
+                        "0 0 50px rgba(163,230,53,0.18), 0 0 100px rgba(190,242,100,0.2), inset 0 0 40px rgba(190,242,100,0.15)",
+                        "0 0 30px rgba(163,230,53,0.12), 0 0 60px rgba(190,242,100,0.15), inset 0 0 30px rgba(190,242,100,0.1)",
                       ],
                 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="relative h-24 w-24 rounded-full flex items-center justify-center"
                 style={{
                   background: "radial-gradient(circle at 30% 30%, rgba(190,242,100,0.2), rgba(163,230,53,0.1), rgba(15,23,42,0.9))",
-                  border: "1px solid rgba(190,242,100,0.3)",
+                  border: "1px solid rgba(163,230,53,0.12)",
                 }}
               >
                 {/* Inner rotating ring */}
@@ -147,7 +147,7 @@ export function FaucetPanel() {
                   animate={cooldown > 0 ? {} : { scale: [1, 1.1, 1] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <Droplets className="h-7 w-7 text-arc-cyan relative z-10" style={{ filter: "drop-shadow(0 0 8px rgba(190,242,100,0.6))" }} />
+                  <Droplets className="h-7 w-7 text-arc-cyan relative z-10" style={{ filter: "drop-shadow(0 0 8px rgba(163,230,53,0.2))" }} />
                 </motion.div>
 
                 {/* Energy particles around orb */}
@@ -169,8 +169,8 @@ export function FaucetPanel() {
                     style={{
                       width: "2px",
                       height: "2px",
-                      background: i % 2 === 0 ? "rgba(190,242,100,0.8)" : "rgba(163,230,53,0.7)",
-                      boxShadow: i % 2 === 0 ? "0 0 4px rgba(190,242,100,0.6)" : "0 0 4px rgba(163,230,53,0.5)",
+                      background: i % 2 === 0 ? "rgba(163,230,53,0.3)" : "rgba(163,230,53,0.25)",
+                      boxShadow: i % 2 === 0 ? "0 0 4px rgba(163,230,53,0.2)" : "0 0 4px rgba(163,230,53,0.18)",
                       bottom: "50%",
                       left: `${30 + i * 8}%`,
                     }}
@@ -183,12 +183,12 @@ export function FaucetPanel() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                   <svg className="h-32 w-32 -rotate-90" viewBox="0 0 100 100">
                     <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(190,242,100,0.08)" strokeWidth="2" />
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(190,242,100,0.7)" strokeWidth="2"
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(163,230,53,0.25)" strokeWidth="2"
                       strokeDasharray={`${2 * Math.PI * 45}`}
                       strokeDashoffset={`${2 * Math.PI * 45 * (1 - cooldown / 60)}`}
                       strokeLinecap="round"
                       className="transition-all duration-1000"
-                      style={{ filter: "drop-shadow(0 0 4px rgba(190,242,100,0.5))" }}
+                      style={{ filter: "drop-shadow(0 0 4px rgba(163,230,53,0.18))" }}
                     />
                   </svg>
                 </div>
@@ -241,7 +241,7 @@ export function FaucetPanel() {
                   : "linear-gradient(135deg, rgba(190,242,100,0.9) 0%, rgba(59,130,246,0.9) 100%)",
                 boxShadow: cooldown > 0
                   ? "none"
-                  : "0 4px 20px rgba(190,242,100,0.3), 0 0 0 1px rgba(190,242,100,0.2)",
+                  : "0 4px 20px rgba(163,230,53,0.12), 0 0 0 1px rgba(190,242,100,0.2)",
               }}
             >
               {cooldown > 0 ? (
