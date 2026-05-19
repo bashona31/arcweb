@@ -70,7 +70,7 @@ export function HeroPanel() {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -right-4 top-1/2 -translate-y-1/2 h-24 w-24 sm:h-32 sm:w-32 rounded-full hidden sm:block"
               style={{
-                background: "radial-gradient(circle, rgba(127,255,0,0.3) 0%, rgba(6,182,212,0.15) 40%, transparent 70%)",
+                background: "radial-gradient(circle, rgba(163,230,53,0.3) 0%, rgba(6,182,212,0.15) 40%, transparent 70%)",
                 filter: "blur(20px)",
               }}
             />
@@ -112,9 +112,9 @@ function StatCard({ icon: Icon, label, value, loading, color }: {
   const styles = {
     purple: {
       border: "border-arc-green/20 hover:border-arc-green/40",
-      glow: "hover:shadow-[0_0_25px_rgba(127,255,0,0.12)]",
+      glow: "hover:shadow-[0_0_25px_rgba(163,230,53,0.12)]",
       icon: "text-arc-green",
-      dot: "bg-arc-green shadow-[0_0_6px_rgba(127,255,0,0.6)]",
+      dot: "bg-arc-green shadow-[0_0_6px_rgba(163,230,53,0.6)]",
     },
     cyan: {
       border: "border-arc-cyan/20 hover:border-arc-cyan/40",

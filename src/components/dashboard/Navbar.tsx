@@ -103,9 +103,9 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
                         layoutId="nav-active"
                         className="absolute inset-0 rounded-lg"
                         style={{
-                          background: "rgba(127, 255, 0, 0.08)",
-                          border: "1px solid rgba(127, 255, 0, 0.25)",
-                          boxShadow: "0 0 15px rgba(127, 255, 0, 0.1), inset 0 0 15px rgba(127, 255, 0, 0.03)",
+                          background: "rgba(163, 230, 53, 0.08)",
+                          border: "1px solid rgba(163, 230, 53, 0.25)",
+                          boxShadow: "0 0 15px rgba(163, 230, 53, 0.1), inset 0 0 15px rgba(163, 230, 53, 0.03)",
                         }}
                         transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
                       />
@@ -118,7 +118,7 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
                         layoutId="nav-underline"
                         className="absolute bottom-0 left-3 right-3 h-px"
                         style={{
-                          background: "linear-gradient(90deg, transparent, rgba(127,255,0,0.6), transparent)",
+                          background: "linear-gradient(90deg, transparent, rgba(163,230,53,0.6), transparent)",
                         }}
                         transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
                       />
@@ -171,14 +171,14 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
                     }}
                     className={`flex w-full items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-medium transition-all ${
                       isActive
-                        ? "text-white bg-arc-green/[0.08] border border-arc-green/20 shadow-[0_0_15px_rgba(127,255,0,0.08)]"
+                        ? "text-white bg-arc-green/[0.08] border border-arc-green/20 shadow-[0_0_15px_rgba(163,230,53,0.08)]"
                         : "text-arc-text-muted hover:text-white hover:bg-white/[0.03]"
                     }`}
                   >
                     <Icon className={`h-4 w-4 ${isActive ? "text-arc-green" : ""}`} />
                     {item.label}
                     {isActive && (
-                      <div className="ml-auto h-1.5 w-1.5 rounded-full bg-arc-green shadow-[0_0_6px_rgba(127,255,0,0.8)]" />
+                      <div className="ml-auto h-1.5 w-1.5 rounded-full bg-arc-green shadow-[0_0_6px_rgba(163,230,53,0.8)]" />
                     )}
                   </button>
                 );
