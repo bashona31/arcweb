@@ -1,5 +1,5 @@
 export const ARC_TESTNET_CONFIG = {
-  id: 1637450,
+  id: 5042002,
   name: "ARC Testnet",
   network: "arc-testnet",
   nativeCurrency: {
