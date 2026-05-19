@@ -54,19 +54,24 @@ export function Dashboard() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="max-w-2xl mx-auto space-y-6"
+              className="max-w-4xl mx-auto space-y-5"
             >
-              <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-white mb-2">
+              <div className="text-center mb-6">
+                <h2 className="text-2xl font-bold text-white mb-1">
                   ARC Faucet Hub
                 </h2>
                 <p className="text-sm text-arc-text-muted">
                   Claim free testnet ARC for development and testing
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <FaucetPanel />
-                <WalletPanel />
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+                <div className="lg:col-span-3">
+                  <FaucetPanel />
+                </div>
+                <div className="lg:col-span-2 space-y-5">
+                  <WalletPanel />
+                  <NetworkStatus />
+                </div>
               </div>
             </motion.div>
           )}
