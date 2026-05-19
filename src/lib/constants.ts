@@ -20,7 +20,7 @@ export const ARC_TESTNET_CONFIG = {
   blockExplorers: {
     default: {
       name: "ARC Explorer",
-      url: "https://testnet.arcscan.io",
+      url: "https://testnet.arcscan.app",
     },
   },
   testnet: true,
@@ -31,6 +31,6 @@ export const HTTP_RPC_URL = "https://arc-testnet.g.alchemy.com/v2/wR4tuK-24rvsCM
 
 export const FAUCET_URL = "https://faucet.circle.com";
 
-export const EXPLORER_URL = "https://testnet.arcscan.io";
+export const EXPLORER_URL = "https://testnet.arcscan.app";
 
 export const NATIVE_SYMBOL = "ARC";
