@@ -10,12 +10,12 @@ import { defineChain } from "viem";
 import "@rainbow-me/rainbowkit/styles.css";
 
 const arcTestnet = defineChain({
-  id:5042002,
+  id: 5042002,
   name: "ARC Testnet",
   nativeCurrency: {
     decimals: 18,
-    name: "ETH",
-    symbol: "ETH",
+    name: "ARC",
+    symbol: "ARC",
   },
   rpcUrls: {
     default: {
