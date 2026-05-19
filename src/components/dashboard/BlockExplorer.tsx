@@ -29,7 +29,7 @@ export function BlockExplorer() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 px-5 py-4 border-b border-arc-border">
         <div className="flex items-center gap-2">
-          <Compass className="h-4 w-4 text-arc-blue" />
+          <Compass className="h-4 w-4 text-arc-green" />
           <h3 className="text-sm font-semibold text-white">Block Explorer</h3>
           <span className="text-xs text-arc-text-muted px-2 py-0.5 rounded bg-arc-bg border border-arc-border">
             {blocks.length} blocks
@@ -42,7 +42,7 @@ export function BlockExplorer() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search block # or hash..."
-            className="w-full sm:w-56 pl-9 pr-4 py-2 rounded-lg bg-arc-bg border border-arc-border text-xs text-white placeholder-arc-text-dim focus:outline-none focus:border-arc-blue/50 transition-colors"
+            className="w-full sm:w-56 pl-9 pr-4 py-2 rounded-lg bg-arc-bg border border-arc-border text-xs text-white placeholder-arc-text-dim focus:outline-none focus:border-arc-green/50 transition-colors"
           />
         </div>
       </div>
@@ -83,8 +83,8 @@ export function BlockExplorer() {
                 >
                   <div className="flex items-center gap-4">
                     {/* Block Icon */}
-                    <div className="h-10 w-10 rounded-lg bg-arc-blue/10 border border-arc-blue/20 flex items-center justify-center flex-shrink-0">
-                      <Box className="h-4 w-4 text-arc-blue" />
+                    <div className="h-10 w-10 rounded-lg bg-arc-green/10 border border-arc-green/20 flex items-center justify-center flex-shrink-0">
+                      <Box className="h-4 w-4 text-arc-green" />
                     </div>
 
                     {/* Block Info */}
@@ -118,7 +118,7 @@ export function BlockExplorer() {
                       rel="noopener noreferrer"
                       className="p-2 rounded-lg hover:bg-arc-surface transition-colors flex-shrink-0"
                     >
-                      <ExternalLink className="h-4 w-4 text-arc-text-dim hover:text-arc-blue" />
+                      <ExternalLink className="h-4 w-4 text-arc-text-dim hover:text-arc-green" />
                     </a>
                   </div>
 
@@ -129,7 +129,7 @@ export function BlockExplorer() {
                         initial={{ width: 0 }}
                         animate={{ width: `${gasPercent}%` }}
                         transition={{ duration: 0.5, delay: i * 0.05 }}
-                        className="h-full rounded-full bg-gradient-to-r from-arc-blue to-arc-cyan"
+                        className="h-full rounded-full bg-gradient-to-r from-arc-green to-arc-cyan"
                       />
                     </div>
                   </div>

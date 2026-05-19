@@ -5,178 +5,67 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    border-color: rgba(255, 255, 255, 0.08);
-  }
-
-  html {
-    @apply scroll-smooth;
-    color-scheme: dark;
-  }
-
+  * { border-color: rgba(127, 255, 0, 0.1); }
+  html { @apply scroll-smooth; color-scheme: dark; }
   body {
-    @apply bg-arc-bg text-arc-text antialiased;
+    @apply antialiased;
     font-family: "Inter", system-ui, sans-serif;
-    background: #050816;
+    background: #04070D;
+    color: #F8FAFC;
   }
-
-  ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 100px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.12);
-  }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(127,255,0,0.1); border-radius: 100px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(127,255,0,0.2); }
 }
 
 @layer components {
-  /* Premium Glass Card */
   .glass-card {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(10, 15, 25, 0.72);
     backdrop-filter: blur(24px) saturate(1.2);
     -webkit-backdrop-filter: blur(24px) saturate(1.2);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow:
-      0 4px 30px rgba(0, 0, 0, 0.4),
-      0 0 1px rgba(255, 255, 255, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(127, 255, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.5), 0 0 1px rgba(127,255,0,0.08), inset 0 1px 0 rgba(255,255,255,0.03);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
   .glass-card:hover {
-    border-color: rgba(124, 58, 237, 0.2);
-    box-shadow:
-      0 8px 50px rgba(124, 58, 237, 0.08),
-      0 0 1px rgba(255, 255, 255, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    border-color: rgba(127, 255, 0, 0.22);
+    box-shadow: 0 8px 50px rgba(127,255,0,0.06), 0 0 1px rgba(127,255,0,0.15), inset 0 1px 0 rgba(255,255,255,0.05);
     transform: translateY(-2px);
   }
-
-  /* Neon glow border */
   .neon-border {
-    border: 1px solid rgba(124, 58, 237, 0.2);
-    box-shadow:
-      0 0 15px rgba(124, 58, 237, 0.1),
-      inset 0 0 15px rgba(124, 58, 237, 0.03);
-  }
-
-  .neon-border-cyan {
-    border: 1px solid rgba(6, 182, 212, 0.2);
-    box-shadow:
-      0 0 15px rgba(6, 182, 212, 0.1),
-      inset 0 0 15px rgba(6, 182, 212, 0.03);
+    border: 1px solid rgba(127,255,0,0.2);
+    box-shadow: 0 0 15px rgba(127,255,0,0.08), inset 0 0 15px rgba(127,255,0,0.02);
   }
 }
 
+
 @layer utilities {
-  /* Text glow */
   .glow-text {
-    text-shadow:
-      0 0 20px rgba(124, 58, 237, 0.5),
-      0 0 40px rgba(124, 58, 237, 0.3),
-      0 0 80px rgba(124, 58, 237, 0.1);
+    text-shadow: 0 0 20px rgba(127,255,0,0.5), 0 0 40px rgba(127,255,0,0.3), 0 0 80px rgba(127,255,0,0.1);
   }
-
-  .glow-text-cyan {
-    text-shadow:
-      0 0 20px rgba(6, 182, 212, 0.5),
-      0 0 40px rgba(6, 182, 212, 0.3),
-      0 0 80px rgba(6, 182, 212, 0.1);
-  }
-
-  /* Gradient text */
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #7C3AED 0%, #06B6D4 50%, #3B82F6 100%);
+    background-image: linear-gradient(135deg, #7FFF00 0%, #39FF14 50%, #32CD32 100%);
   }
-
-  /* Shimmer text animation */
   .animate-shimmer-text {
     background-size: 300% auto;
-    background-image: linear-gradient(
-      90deg,
-      #7C3AED 0%,
-      #06B6D4 20%,
-      #3B82F6 40%,
-      #EC4899 60%,
-      #06B6D4 80%,
-      #7C3AED 100%
-    );
+    background-image: linear-gradient(90deg, #7FFF00 0%, #39FF14 20%, #32CD32 40%, #FFFFFF 60%, #39FF14 80%, #7FFF00 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: shimmer-text 8s ease-in-out infinite;
   }
-
   @keyframes shimmer-text {
     0%, 100% { background-position: 0% center; }
     50% { background-position: 200% center; }
   }
-
-  /* Ambient glow effect */
-  .ambient-glow {
-    position: relative;
-  }
-
-  .ambient-glow::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(6,182,212,0.1), transparent);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
-    -webkit-mask-composite: xor;
-    padding: 1px;
-    pointer-events: none;
-  }
-
-  /* Pulse dot */
-  .pulse-dot {
-    position: relative;
-  }
-
-  .pulse-dot::after {
-    content: "";
-    position: absolute;
-    inset: -3px;
-    border-radius: 50%;
-    background: inherit;
-    opacity: 0;
-    animation: pulse-ring 2s ease-out infinite;
-  }
-
-  @keyframes pulse-ring {
-    0% { transform: scale(1); opacity: 0.6; }
-    100% { transform: scale(2.5); opacity: 0; }
-  }
-
-  /* Scrollbar thin */
   .scrollbar-thin {
     scrollbar-width: thin;
-    scrollbar-color: rgba(255,255,255,0.06) transparent;
+    scrollbar-color: rgba(127,255,0,0.08) transparent;
   }
-
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 100px;
-  }
-
-  /* Noise texture overlay */
+  .scrollbar-thin::-webkit-scrollbar { width: 4px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: rgba(127,255,0,0.08); border-radius: 100px; }
   .noise-overlay::after {
     content: "";
     position: absolute;
@@ -188,11 +77,10 @@
   }
 }
 
-/* RainbowKit Custom Overrides */
 [data-rk] {
-  --rk-colors-accentColor: #7C3AED !important;
-  --rk-colors-connectButtonBackground: rgba(15,23,42,0.7) !important;
-  --rk-colors-connectButtonInnerBackground: rgba(15,23,42,0.9) !important;
-  --rk-colors-modalBackground: #0a0f1e !important;
+  --rk-colors-accentColor: #7FFF00 !important;
+  --rk-colors-connectButtonBackground: rgba(10,15,25,0.7) !important;
+  --rk-colors-connectButtonInnerBackground: rgba(10,15,25,0.9) !important;
+  --rk-colors-modalBackground: #04070D !important;
   --rk-radii-connectButton: 12px !important;
 }

@@ -32,9 +32,9 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
       {/* Top edge glow line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-arc-purple/40 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-arc-green/40 to-transparent" />
 
-      <div className="border-b border-white/[0.04] bg-[#050816]/70 backdrop-blur-2xl backdrop-saturate-150">
+      <div className="border-b border-white/[0.04] bg-[#04070D]/70 backdrop-blur-2xl backdrop-saturate-150">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
@@ -103,9 +103,9 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
                         layoutId="nav-active"
                         className="absolute inset-0 rounded-lg"
                         style={{
-                          background: "rgba(124, 58, 237, 0.08)",
-                          border: "1px solid rgba(124, 58, 237, 0.25)",
-                          boxShadow: "0 0 15px rgba(124, 58, 237, 0.1), inset 0 0 15px rgba(124, 58, 237, 0.03)",
+                          background: "rgba(127, 255, 0, 0.08)",
+                          border: "1px solid rgba(127, 255, 0, 0.25)",
+                          boxShadow: "0 0 15px rgba(127, 255, 0, 0.1), inset 0 0 15px rgba(127, 255, 0, 0.03)",
                         }}
                         transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
                       />
@@ -118,7 +118,7 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
                         layoutId="nav-underline"
                         className="absolute bottom-0 left-3 right-3 h-px"
                         style={{
-                          background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.6), transparent)",
+                          background: "linear-gradient(90deg, transparent, rgba(127,255,0,0.6), transparent)",
                         }}
                         transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
                       />
@@ -156,7 +156,7 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-b border-white/[0.04] bg-[#050816]/95 backdrop-blur-2xl"
+            className="md:hidden border-b border-white/[0.04] bg-[#04070D]/95 backdrop-blur-2xl"
           >
             <div className="p-4 space-y-1">
               {navItems.map((item) => {
@@ -171,14 +171,14 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
                     }}
                     className={`flex w-full items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-medium transition-all ${
                       isActive
-                        ? "text-white bg-arc-purple/[0.08] border border-arc-purple/20 shadow-[0_0_15px_rgba(124,58,237,0.08)]"
+                        ? "text-white bg-arc-green/[0.08] border border-arc-green/20 shadow-[0_0_15px_rgba(127,255,0,0.08)]"
                         : "text-arc-text-muted hover:text-white hover:bg-white/[0.03]"
                     }`}
                   >
-                    <Icon className={`h-4 w-4 ${isActive ? "text-arc-purple" : ""}`} />
+                    <Icon className={`h-4 w-4 ${isActive ? "text-arc-green" : ""}`} />
                     {item.label}
                     {isActive && (
-                      <div className="ml-auto h-1.5 w-1.5 rounded-full bg-arc-purple shadow-[0_0_6px_rgba(124,58,237,0.8)]" />
+                      <div className="ml-auto h-1.5 w-1.5 rounded-full bg-arc-green shadow-[0_0_6px_rgba(127,255,0,0.8)]" />
                     )}
                   </button>
                 );

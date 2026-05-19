@@ -43,14 +43,14 @@ export function FaucetPanel() {
       {/* Internal ambient light */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-20 left-1/2 -translate-x-1/2 h-40 w-60 rounded-full bg-arc-cyan/[0.06] blur-[60px]" />
-        <div className="absolute -bottom-10 left-1/4 h-32 w-48 rounded-full bg-arc-purple/[0.04] blur-[50px]" />
+        <div className="absolute -bottom-10 left-1/4 h-32 w-48 rounded-full bg-arc-green/[0.04] blur-[50px]" />
       </div>
 
       <div className="relative z-10 p-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-lg" style={{ background: "rgba(6,182,212,0.1)", border: "1px solid rgba(6,182,212,0.15)", boxShadow: "0 0 12px rgba(6,182,212,0.15)" }}>
+            <div className="p-2 rounded-lg" style={{ background: "rgba(57,255,20,0.1)", border: "1px solid rgba(57,255,20,0.15)", boxShadow: "0 0 12px rgba(57,255,20,0.15)" }}>
               <Droplets className="h-4 w-4 text-arc-cyan" />
             </div>
             <div>
@@ -70,7 +70,7 @@ export function FaucetPanel() {
 
         {!isConnected ? (
           <div className="text-center py-10">
-            <div className="inline-flex p-5 rounded-full mb-4" style={{ background: "rgba(6,182,212,0.05)", border: "1px solid rgba(6,182,212,0.1)", boxShadow: "0 0 40px rgba(6,182,212,0.08)" }}>
+            <div className="inline-flex p-5 rounded-full mb-4" style={{ background: "rgba(57,255,20,0.05)", border: "1px solid rgba(57,255,20,0.1)", boxShadow: "0 0 40px rgba(57,255,20,0.08)" }}>
               <Wallet className="h-7 w-7 text-arc-cyan" />
             </div>
             <p className="text-sm text-arc-text-muted mb-5">
@@ -87,7 +87,7 @@ export function FaucetPanel() {
                 animate={{ opacity: [0.3, 0.6, 0.3], scale: [0.95, 1.05, 0.95] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-40 w-40 rounded-full"
-                style={{ background: "radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%)" }}
+                style={{ background: "radial-gradient(circle, rgba(57,255,20,0.12) 0%, transparent 70%)" }}
               />
 
               {/* Outer rotating ring */}
@@ -95,9 +95,9 @@ export function FaucetPanel() {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-32 w-32 rounded-full"
-                style={{ border: "1px solid rgba(6,182,212,0.12)" }}
+                style={{ border: "1px solid rgba(57,255,20,0.12)" }}
               >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-arc-cyan" style={{ boxShadow: "0 0 8px rgba(6,182,212,0.8)" }} />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-arc-cyan" style={{ boxShadow: "0 0 8px rgba(57,255,20,0.8)" }} />
               </motion.div>
 
               {/* Middle pulse ring */}
@@ -105,7 +105,7 @@ export function FaucetPanel() {
                 animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0, 0.4] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeOut" }}
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-24 w-24 rounded-full"
-                style={{ border: "1px solid rgba(6,182,212,0.3)" }}
+                style={{ border: "1px solid rgba(57,255,20,0.3)" }}
               />
 
               {/* Second pulse wave */}
@@ -113,25 +113,25 @@ export function FaucetPanel() {
                 animate={{ scale: [1, 1.5, 1], opacity: [0.2, 0, 0.2] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeOut", delay: 1.5 }}
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-24 w-24 rounded-full"
-                style={{ border: "1px solid rgba(124,58,237,0.2)" }}
+                style={{ border: "1px solid rgba(127,255,0,0.2)" }}
               />
 
               {/* Core orb */}
               <motion.div
                 animate={{
                   boxShadow: cooldown > 0
-                    ? "0 0 20px rgba(6,182,212,0.1), inset 0 0 20px rgba(6,182,212,0.05)"
+                    ? "0 0 20px rgba(57,255,20,0.1), inset 0 0 20px rgba(57,255,20,0.05)"
                     : [
-                        "0 0 30px rgba(6,182,212,0.3), 0 0 60px rgba(6,182,212,0.15), inset 0 0 30px rgba(6,182,212,0.1)",
-                        "0 0 50px rgba(6,182,212,0.5), 0 0 100px rgba(6,182,212,0.2), inset 0 0 40px rgba(6,182,212,0.15)",
-                        "0 0 30px rgba(6,182,212,0.3), 0 0 60px rgba(6,182,212,0.15), inset 0 0 30px rgba(6,182,212,0.1)",
+                        "0 0 30px rgba(57,255,20,0.3), 0 0 60px rgba(57,255,20,0.15), inset 0 0 30px rgba(57,255,20,0.1)",
+                        "0 0 50px rgba(57,255,20,0.5), 0 0 100px rgba(57,255,20,0.2), inset 0 0 40px rgba(57,255,20,0.15)",
+                        "0 0 30px rgba(57,255,20,0.3), 0 0 60px rgba(57,255,20,0.15), inset 0 0 30px rgba(57,255,20,0.1)",
                       ],
                 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="relative h-24 w-24 rounded-full flex items-center justify-center"
                 style={{
-                  background: "radial-gradient(circle at 30% 30%, rgba(6,182,212,0.2), rgba(124,58,237,0.1), rgba(15,23,42,0.9))",
-                  border: "1px solid rgba(6,182,212,0.3)",
+                  background: "radial-gradient(circle at 30% 30%, rgba(57,255,20,0.2), rgba(127,255,0,0.1), rgba(15,23,42,0.9))",
+                  border: "1px solid rgba(57,255,20,0.3)",
                 }}
               >
                 {/* Inner rotating ring */}
@@ -139,7 +139,7 @@ export function FaucetPanel() {
                   animate={cooldown > 0 ? {} : { rotate: -360 }}
                   transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
                   className="absolute inset-2 rounded-full"
-                  style={{ border: "1px dashed rgba(6,182,212,0.2)" }}
+                  style={{ border: "1px dashed rgba(57,255,20,0.2)" }}
                 />
 
                 {/* Icon */}
@@ -147,7 +147,7 @@ export function FaucetPanel() {
                   animate={cooldown > 0 ? {} : { scale: [1, 1.1, 1] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <Droplets className="h-7 w-7 text-arc-cyan relative z-10" style={{ filter: "drop-shadow(0 0 8px rgba(6,182,212,0.6))" }} />
+                  <Droplets className="h-7 w-7 text-arc-cyan relative z-10" style={{ filter: "drop-shadow(0 0 8px rgba(57,255,20,0.6))" }} />
                 </motion.div>
 
                 {/* Energy particles around orb */}
@@ -169,8 +169,8 @@ export function FaucetPanel() {
                     style={{
                       width: "2px",
                       height: "2px",
-                      background: i % 2 === 0 ? "rgba(6,182,212,0.8)" : "rgba(124,58,237,0.7)",
-                      boxShadow: i % 2 === 0 ? "0 0 4px rgba(6,182,212,0.6)" : "0 0 4px rgba(124,58,237,0.5)",
+                      background: i % 2 === 0 ? "rgba(57,255,20,0.8)" : "rgba(127,255,0,0.7)",
+                      boxShadow: i % 2 === 0 ? "0 0 4px rgba(57,255,20,0.6)" : "0 0 4px rgba(127,255,0,0.5)",
                       bottom: "50%",
                       left: `${30 + i * 8}%`,
                     }}
@@ -182,13 +182,13 @@ export function FaucetPanel() {
               {cooldown > 0 && (
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                   <svg className="h-32 w-32 -rotate-90" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(6,182,212,0.08)" strokeWidth="2" />
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(6,182,212,0.7)" strokeWidth="2"
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(57,255,20,0.08)" strokeWidth="2" />
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(57,255,20,0.7)" strokeWidth="2"
                       strokeDasharray={`${2 * Math.PI * 45}`}
                       strokeDashoffset={`${2 * Math.PI * 45 * (1 - cooldown / 60)}`}
                       strokeLinecap="round"
                       className="transition-all duration-1000"
-                      style={{ filter: "drop-shadow(0 0 4px rgba(6,182,212,0.5))" }}
+                      style={{ filter: "drop-shadow(0 0 4px rgba(57,255,20,0.5))" }}
                     />
                   </svg>
                 </div>
@@ -209,7 +209,7 @@ export function FaucetPanel() {
                 initial={{ opacity: 0, y: -5 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="flex items-center gap-2 p-3 rounded-xl"
-                style={{ background: "rgba(6,182,212,0.06)", border: "1px solid rgba(6,182,212,0.15)" }}
+                style={{ background: "rgba(57,255,20,0.06)", border: "1px solid rgba(57,255,20,0.15)" }}
               >
                 <Clock className="h-4 w-4 text-arc-cyan" />
                 <span className="text-xs text-arc-cyan font-medium">Cooldown: {formatCooldown(cooldown)}</span>
@@ -238,10 +238,10 @@ export function FaucetPanel() {
               style={{
                 background: cooldown > 0
                   ? "rgba(255,255,255,0.04)"
-                  : "linear-gradient(135deg, rgba(6,182,212,0.9) 0%, rgba(59,130,246,0.9) 100%)",
+                  : "linear-gradient(135deg, rgba(57,255,20,0.9) 0%, rgba(59,130,246,0.9) 100%)",
                 boxShadow: cooldown > 0
                   ? "none"
-                  : "0 4px 20px rgba(6,182,212,0.3), 0 0 0 1px rgba(6,182,212,0.2)",
+                  : "0 4px 20px rgba(57,255,20,0.3), 0 0 0 1px rgba(57,255,20,0.2)",
               }}
             >
               {cooldown > 0 ? (

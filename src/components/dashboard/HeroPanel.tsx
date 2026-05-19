@@ -11,7 +11,7 @@ export function HeroPanel() {
     <div className="relative overflow-hidden rounded-2xl glass-card p-8 sm:p-12">
       {/* Internal ambient light sources */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-32 left-1/4 h-64 w-96 rounded-full bg-arc-purple/[0.08] blur-[100px]" />
+        <div className="absolute -top-32 left-1/4 h-64 w-96 rounded-full bg-arc-green/[0.08] blur-[100px]" />
         <div className="absolute -bottom-20 right-1/4 h-48 w-72 rounded-full bg-arc-cyan/[0.06] blur-[80px]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-32 w-32 rounded-full bg-arc-blue/[0.05] blur-[60px]" />
       </div>
@@ -57,7 +57,7 @@ export function HeroPanel() {
 
             {/* Blur glow layer behind title */}
             <div className="absolute top-0 left-0 text-6xl sm:text-8xl lg:text-[120px] font-black leading-[0.85] tracking-[-0.05em] pointer-events-none select-none opacity-30 blur-[30px]" aria-hidden="true">
-              <span className="block text-arc-purple">ARC</span>
+              <span className="block text-arc-green">ARC</span>
               <span className="block text-arc-cyan">TERMINAL</span>
             </div>
 
@@ -70,7 +70,7 @@ export function HeroPanel() {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -right-4 top-1/2 -translate-y-1/2 h-24 w-24 sm:h-32 sm:w-32 rounded-full hidden sm:block"
               style={{
-                background: "radial-gradient(circle, rgba(124,58,237,0.3) 0%, rgba(6,182,212,0.15) 40%, transparent 70%)",
+                background: "radial-gradient(circle, rgba(127,255,0,0.3) 0%, rgba(6,182,212,0.15) 40%, transparent 70%)",
                 filter: "blur(20px)",
               }}
             />
@@ -111,10 +111,10 @@ function StatCard({ icon: Icon, label, value, loading, color }: {
 }) {
   const styles = {
     purple: {
-      border: "border-arc-purple/20 hover:border-arc-purple/40",
-      glow: "hover:shadow-[0_0_25px_rgba(124,58,237,0.12)]",
-      icon: "text-arc-purple",
-      dot: "bg-arc-purple shadow-[0_0_6px_rgba(124,58,237,0.6)]",
+      border: "border-arc-green/20 hover:border-arc-green/40",
+      glow: "hover:shadow-[0_0_25px_rgba(127,255,0,0.12)]",
+      icon: "text-arc-green",
+      dot: "bg-arc-green shadow-[0_0_6px_rgba(127,255,0,0.6)]",
     },
     cyan: {
       border: "border-arc-cyan/20 hover:border-arc-cyan/40",

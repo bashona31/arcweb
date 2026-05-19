@@ -89,15 +89,15 @@ export function StatsGrid() {
         const Icon = card.icon;
         const colors = {
           blue: {
-            bg: "bg-arc-blue/5",
-            border: "border-arc-blue/20",
-            icon: "text-arc-blue",
+            bg: "bg-arc-green/5",
+            border: "border-arc-green/20",
+            icon: "text-arc-green",
             glow: "shadow-glow",
           },
           purple: {
-            bg: "bg-arc-purple/5",
-            border: "border-arc-purple/20",
-            icon: "text-arc-purple",
+            bg: "bg-arc-green/5",
+            border: "border-arc-green/20",
+            icon: "text-arc-green",
             glow: "shadow-glow-purple",
           },
           cyan: {

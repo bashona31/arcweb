@@ -34,8 +34,8 @@ export function WalletPanel() {
       className="rounded-2xl border border-arc-border bg-arc-surface/50 backdrop-blur-xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.05)]"
     >
       <div className="flex items-center gap-2 mb-4">
-        <div className="p-1.5 rounded-lg bg-arc-purple/10 shadow-[0_0_12px_rgba(139,92,246,0.3)]">
-          <Wallet className="h-4 w-4 text-arc-purple" />
+        <div className="p-1.5 rounded-lg bg-arc-green/10 shadow-[0_0_12px_rgba(139,92,246,0.3)]">
+          <Wallet className="h-4 w-4 text-arc-green" />
         </div>
         <h3 className="text-sm font-semibold text-white">Wallet</h3>
       </div>
@@ -47,7 +47,7 @@ export function WalletPanel() {
           className="space-y-4"
         >
           <div className="flex items-center gap-2 p-3 rounded-xl bg-arc-bg/80 border border-arc-border shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <div className="h-8 w-8 rounded-full bg-gradient-to-br from-arc-blue to-arc-purple flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.4)]">
+            <div className="h-8 w-8 rounded-full bg-gradient-to-br from-arc-green to-arc-cyan flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.4)]">
               <Shield className="h-4 w-4 text-white" />
             </div>
             <div className="flex-1 min-w-0">
@@ -76,7 +76,7 @@ export function WalletPanel() {
             </a>
           </div>
 
-          <div className="p-4 rounded-xl bg-gradient-to-br from-arc-blue/8 to-arc-purple/8 border border-arc-blue/15 shadow-[0_4px_20px_rgba(59,130,246,0.1),inset_0_1px_0_rgba(255,255,255,0.03)]">
+          <div className="p-4 rounded-xl bg-gradient-to-br from-arc-green/8 to-arc-green/8 border border-arc-green/15 shadow-[0_4px_20px_rgba(59,130,246,0.1),inset_0_1px_0_rgba(255,255,255,0.03)]">
             <p className="text-xs text-arc-text-muted mb-1">Balance</p>
             <div className="flex items-baseline gap-2">
               <span className="text-2xl font-bold text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.1)]">
@@ -104,8 +104,8 @@ export function WalletPanel() {
         </motion.div>
       ) : (
         <div className="text-center py-6">
-          <div className="inline-flex p-4 rounded-full bg-arc-blue/5 border border-arc-blue/10 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)]">
-            <Wallet className="h-6 w-6 text-arc-blue" />
+          <div className="inline-flex p-4 rounded-full bg-arc-green/5 border border-arc-green/10 mb-4 shadow-[0_0_30px_rgba(59,130,246,0.15)]">
+            <Wallet className="h-6 w-6 text-arc-green" />
           </div>
           <p className="text-sm text-arc-text-muted mb-4">
             Connect your wallet to interact with ARC Testnet

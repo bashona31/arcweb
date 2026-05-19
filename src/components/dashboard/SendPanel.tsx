@@ -61,16 +61,16 @@ export function SendPanel() {
   return (
     <div className="rounded-xl border border-arc-border bg-arc-surface/50 backdrop-blur-sm p-5">
       <div className="flex items-center gap-2 mb-5">
-        <div className="p-1.5 rounded-lg bg-arc-blue/10">
-          <Send className="h-4 w-4 text-arc-blue" />
+        <div className="p-1.5 rounded-lg bg-arc-green/10">
+          <Send className="h-4 w-4 text-arc-green" />
         </div>
         <h3 className="text-sm font-semibold text-white">ARC Token Sender</h3>
       </div>
 
       {!isConnected ? (
         <div className="text-center py-8">
-          <div className="inline-flex p-4 rounded-full bg-arc-blue/5 border border-arc-blue/10 mb-4">
-            <Wallet className="h-6 w-6 text-arc-blue" />
+          <div className="inline-flex p-4 rounded-full bg-arc-green/5 border border-arc-green/10 mb-4">
+            <Wallet className="h-6 w-6 text-arc-green" />
           </div>
           <p className="text-sm text-arc-text-muted mb-4">
             Connect wallet to send ARC tokens
@@ -104,7 +104,7 @@ export function SendPanel() {
                   href={`${EXPLORER_URL}/tx/${hash}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs text-arc-blue hover:underline"
+                  className="inline-flex items-center gap-1 text-xs text-arc-green hover:underline"
                 >
                   View on Explorer
                   <ExternalLink className="h-3 w-3" />
@@ -128,7 +128,7 @@ export function SendPanel() {
                     value={recipient}
                     onChange={(e) => setRecipient(e.target.value)}
                     placeholder="0x..."
-                    className="w-full px-4 py-3 rounded-lg bg-arc-bg border border-arc-border text-sm font-mono text-white placeholder-arc-text-dim focus:outline-none focus:border-arc-blue/50 focus:ring-1 focus:ring-arc-blue/20 transition-all"
+                    className="w-full px-4 py-3 rounded-lg bg-arc-bg border border-arc-border text-sm font-mono text-white placeholder-arc-text-dim focus:outline-none focus:border-arc-green/50 focus:ring-1 focus:ring-arc-green/20 transition-all"
                   />
                 </div>
 
@@ -145,7 +145,7 @@ export function SendPanel() {
                       placeholder="0.01"
                       step="0.001"
                       min="0"
-                      className="w-full px-4 py-3 rounded-lg bg-arc-bg border border-arc-border text-sm font-mono text-white placeholder-arc-text-dim focus:outline-none focus:border-arc-blue/50 focus:ring-1 focus:ring-arc-blue/20 transition-all pr-16"
+                      className="w-full px-4 py-3 rounded-lg bg-arc-bg border border-arc-border text-sm font-mono text-white placeholder-arc-text-dim focus:outline-none focus:border-arc-green/50 focus:ring-1 focus:ring-arc-green/20 transition-all pr-16"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-arc-text-muted font-medium">
                       {NATIVE_SYMBOL}
@@ -167,10 +167,10 @@ export function SendPanel() {
 
                 {/* Pending TX Hash */}
                 {hash && isConfirming && (
-                  <div className="flex items-center gap-2 p-3 rounded-lg bg-arc-blue/5 border border-arc-blue/20">
-                    <Loader2 className="h-4 w-4 text-arc-blue animate-spin" />
+                  <div className="flex items-center gap-2 p-3 rounded-lg bg-arc-green/5 border border-arc-green/20">
+                    <Loader2 className="h-4 w-4 text-arc-green animate-spin" />
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs text-arc-blue">Confirming...</p>
+                      <p className="text-xs text-arc-green">Confirming...</p>
                       <p className="text-xs font-mono text-arc-text-muted truncate">
                         {hash}
                       </p>
@@ -182,7 +182,7 @@ export function SendPanel() {
                 <button
                   onClick={handleSend}
                   disabled={isPending || isConfirming}
-                  className="w-full py-3 rounded-lg bg-gradient-to-r from-arc-blue to-arc-cyan text-white text-sm font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+                  className="w-full py-3 rounded-lg bg-gradient-to-r from-arc-green to-arc-cyan text-white text-sm font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
                 >
                   {isPending ? (
                     <>

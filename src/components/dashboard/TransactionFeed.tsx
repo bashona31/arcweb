@@ -68,8 +68,8 @@ export function TransactionFeed() {
                   className="w-full px-5 py-3 flex items-center gap-3 hover:bg-arc-bg/50 transition-colors text-left"
                 >
                   {/* Tx Type Icon */}
-                  <div className="h-8 w-8 rounded-full bg-arc-blue/10 border border-arc-blue/20 flex items-center justify-center flex-shrink-0">
-                    <ArrowRightLeft className="h-3.5 w-3.5 text-arc-blue" />
+                  <div className="h-8 w-8 rounded-full bg-arc-green/10 border border-arc-green/20 flex items-center justify-center flex-shrink-0">
+                    <ArrowRightLeft className="h-3.5 w-3.5 text-arc-green" />
                   </div>
 
                   {/* Main Info */}
@@ -145,7 +145,7 @@ export function TransactionFeed() {
                             href={`${EXPLORER_URL}/tx/${tx.hash}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-xs text-arc-blue hover:underline"
+                            className="inline-flex items-center gap-1 text-xs text-arc-green hover:underline"
                           >
                             View on Explorer
                             <ExternalLink className="h-3 w-3" />

@@ -59,7 +59,7 @@ export function AnalyticsPanel() {
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-arc-border">
         <div className="flex items-center gap-2">
-          <BarChart3 className="h-4 w-4 text-arc-purple" />
+          <BarChart3 className="h-4 w-4 text-arc-green" />
           <h3 className="text-sm font-semibold text-white">Network Analytics</h3>
         </div>
         <div className="flex items-center gap-1 p-1 rounded-lg bg-arc-bg border border-arc-border">
