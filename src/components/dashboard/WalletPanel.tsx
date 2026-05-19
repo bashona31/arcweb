@@ -85,7 +85,7 @@ export function WalletPanel() {
 
           {/* Chain Status */}
           <div className="flex items-center gap-2 text-xs">
-            {chain?.id === 5042002 ? (
+            {chain?.id === 5042002 
               <>
                 <CheckCircle className="h-3.5 w-3.5 text-arc-green" />
                 <span className="text-arc-green">Connected to ARC Testnet</span>
