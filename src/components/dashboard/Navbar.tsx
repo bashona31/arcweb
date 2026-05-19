@@ -10,7 +10,6 @@ import {
   Compass,
   Menu,
   X,
-  Zap,
 } from "lucide-react";
 
 interface NavbarProps {
@@ -39,14 +38,32 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5">
+              {/* Arc Logo - Arch/Gate shape */}
               <div className="relative group cursor-pointer">
-                <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-arc-purple to-arc-cyan flex items-center justify-center shadow-[0_0_20px_rgba(124,58,237,0.3)] group-hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] transition-all duration-300">
-                  <Zap className="h-4 w-4 text-white" />
-                </div>
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-arc-purple to-arc-cyan opacity-40 blur-xl group-hover:opacity-70 transition-opacity duration-300" />
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="relative z-10"
+                >
+                  <path
+                    d="M16 3C9.373 3 4 8.373 4 15v13h4V15c0-4.418 3.582-8 8-8s8 3.582 8 8v13h4V15c0-6.627-5.373-12-12-12z"
+                    fill="url(#arc-logo-gradient)"
+                  />
+                  <defs>
+                    <linearGradient id="arc-logo-gradient" x1="4" y1="3" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                      <stop stopColor="#94A3B8" />
+                      <stop offset="1" stopColor="#64748B" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-40 blur-lg transition-opacity duration-300 bg-white/20 rounded-lg" />
               </div>
-              <span className="text-base font-bold text-white tracking-tight">
+              {/* Brand Name */}
+              <span className="text-lg font-semibold text-white/90 tracking-tight">
                 Arc
               </span>
 
