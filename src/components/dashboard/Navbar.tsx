@@ -46,14 +46,9 @@ export function Navbar({ activeTab, onTabChange }: NavbarProps) {
                 </div>
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-arc-purple to-arc-cyan opacity-40 blur-xl group-hover:opacity-70 transition-opacity duration-300" />
               </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-sm font-black text-white tracking-tight uppercase">
-                  ARC
-                </span>
-                <span className="text-sm font-light text-arc-text-muted tracking-widest uppercase">
-                  Terminal
-                </span>
-              </div>
+              <span className="text-base font-bold text-white tracking-tight">
+                Arc
+              </span>
 
               {/* WebSocket Status */}
               <div className="hidden sm:flex items-center gap-2 ml-4 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06]">
