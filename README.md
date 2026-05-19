@@ -1,41 +1,64 @@
-# CryptoFlow – One Page Template
-#### Preview
+# ARC Testnet Dashboard
 
- - [Demo](https://themewagon.github.io/cryptoflow/)
+A premium real-time Web3 dashboard for the ARC Testnet ecosystem. Built with React, TypeScript, Tailwind CSS, Wagmi, RainbowKit, and Framer Motion.
 
-#### Download
- - [Download from ThemeWagon](https://themewagon.com/themes/cryptoflow/)
+![ARC Dashboard](https://img.shields.io/badge/ARC-Testnet-blue)
+![React](https://img.shields.io/badge/React-18-61dafb)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+
+## Features
+
+- **Real-time Transaction Monitor** — Live WebSocket-powered transaction feed
+- **Wallet Connection** — MetaMask & WalletConnect via RainbowKit
+- **Token Sender** — Send ETH on ARC Testnet with full validation
+- **Faucet Hub** — Claim testnet ETH via Circle Faucet
+- **Block Explorer** — Browse recent blocks with gas analytics
+- **Network Analytics** — TPS, gas usage, and performance charts
+- **WebSocket Integration** — Real-time updates via Alchemy WebSocket RPC
+
+## Tech Stack
+
+- React 18 + TypeScript
+- Vite (build tool)
+- Tailwind CSS (styling)
+- Framer Motion (animations)
+- Wagmi + Viem (Web3 interactions)
+- RainbowKit (wallet UI)
+- Recharts (data visualization)
 
 ## Getting Started
 
-1. Clone Repository
-```
-git clone https://github.com/themewagon/cryptoflow.git
-```
-2. Install Dependencies
-```
-npm i
-```
-3. Run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
 ```
 
-## Author 
+## Network Configuration
+
+- **Chain ID:** 1637450
+- **RPC:** `https://arc-testnet.g.alchemy.com/v2/...`
+- **WebSocket:** `wss://arc-testnet.g.alchemy.com/v2/...`
+- **Explorer:** https://testnet.arcscan.io
+
+## Architecture
+
 ```
-Design and code is completely written by codescandy and development team. 
+src/
+├── components/dashboard/   # Dashboard UI components
+├── hooks/                  # Custom React hooks
+├── services/               # Blockchain & WebSocket services
+├── providers/              # Web3 context providers
+├── pages/                  # Page layouts
+├── lib/                    # Utilities & constants
+└── styles/                 # Global styles
 ```
 
 ## License
 
- - Design and Code is Copyright &copy; [codescandy](https://codescandy.com)
- - Licensed cover under [MIT]
- - Distributed by [ThemeWagon](https://themewagon.com)
-
+MIT
